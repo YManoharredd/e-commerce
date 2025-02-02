@@ -20,6 +20,7 @@ export const authenticate = function (...roles: UserRole[]) {
     }
     const token = authHeader.split(" ")[1];
     const secret = process.env.JWT_SECRET;
+    console.log(",env", secret);
     if (!secret) {
       throw new Error("env JWT_SECRET not set");
     }

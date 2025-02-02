@@ -33,3 +33,8 @@
 .user-avatar {
   margin-left: 2rem;
 }
+#footer,
+.signin,
+.signup {
+  background-color: rgb(162, 33, 33);
+}

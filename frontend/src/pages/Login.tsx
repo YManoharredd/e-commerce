@@ -14,7 +14,9 @@ import { useAuth } from "../hooks";
 import { API } from "../services";
 import { errorSnackbar, getErrorMessage, successSnackbar } from "../utils";
 
-// TODO remove, this demo shouldn't need to reset the theme.
+// Import the image directly
+import loginImage from "../assets/images/login.jpg";
+
 const defaultTheme = createTheme();
 
 export default function SignInSide() {
@@ -30,6 +32,7 @@ export default function SignInSide() {
       // send request
       const response = await API.login(data);
       // store account details
+      console.log("error");
       console.log({ data: response.data });
       setAccount(response.data.data);
       // show snackbar
@@ -56,18 +59,25 @@ export default function SignInSide() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage:
-              'url("https://i.pinimg.com/564x/9c/0e/3e/9c0e3e9046902a3e32544baa3fe87ac3.jpg")',
-
+            backgroundImage: `url(${loginImage})`, // Use image directly
             backgroundColor: (t) =>
               t.palette.mode === "light"
                 ? t.palette.grey[50]
                 : t.palette.grey[900],
             backgroundSize: "cover",
-            backgroundPosition: "left",
+            backgroundPosition: "center", // Changed from "left" for better alignment
           }}
         />
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+        <Grid
+          item
+          xs={12}
+          sm={8}
+          md={5}
+          component={Paper}
+          sx={{ backgroundColor: "#FAF9F6" }}
+          elevation={6}
+          square
+        >
           <Box
             sx={{
               my: 8,

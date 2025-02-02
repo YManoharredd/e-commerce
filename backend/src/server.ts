@@ -6,6 +6,8 @@ import { cartRouter } from "./controller/cart";
 import { productRouter } from "./controller/product";
 import { errorHandler } from "./middleware/error";
 import { HttpStatusCode } from "./utils";
+import { config } from "dotenv";
+config();
 
 const app = express();
 // App middlewares

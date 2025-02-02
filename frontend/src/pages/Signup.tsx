@@ -3,7 +3,6 @@ import { UserRole } from "@backend/types";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import {
   Button,
-  // FormGroup,
   Stack,
   TextField,
   ToggleButton,
@@ -21,7 +20,9 @@ import { useNavigate } from "react-router-dom";
 import { API } from "../services";
 import { errorSnackbar, getErrorMessage, successSnackbar } from "../utils";
 
-// TODO remove, this demo shouldn't need to reset the theme.
+// Importing a custom background image
+import signupImage from "../assets/images/login.jpg";
+
 const defaultTheme = createTheme();
 
 type CreateUserSchema = AuthApiTypes["signup"]["request"];
@@ -52,28 +53,42 @@ export default function Signup() {
     <ThemeProvider theme={defaultTheme}>
       <Grid container component="main" sx={{ height: "100vh" }}>
         <CssBaseline />
+        {/* Left Side Background Image */}
         <Grid
           item
           xs={false}
           sm={4}
           md={7}
           sx={{
-            backgroundImage:
-              'url("https://i.pinimg.com/564x/9c/0e/3e/9c0e3e9046902a3e32544baa3fe87ac3.jpg")',
-
+            backgroundImage: `url(${signupImage})`,
             backgroundColor: (t) =>
               t.palette.mode === "light"
                 ? t.palette.grey[50]
                 : t.palette.grey[900],
             backgroundSize: "cover",
-            backgroundPosition: "left",
+            backgroundPosition: "center", // Center the image
           }}
         />
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+        {/* Right Side Signup Form */}
+        <Grid
+          item
+          xs={12}
+          sm={8}
+          md={5}
+          component={Paper}
+          elevation={6}
+          square
+          sx={{
+            backgroundColor: "#FAF9F6",
+            display: "flex", // Flexbox to enable centering
+            justifyContent: "center", // Centers horizontally
+            alignItems: "center", // Centers vertically
+          }}
+        >
           <Box
             sx={{
-              my: 8,
-              mx: 4,
+              my: 4, // Vertical margin for spacing
+              mx: 4, // Horizontal margin for spacing
               display: "flex",
               flexDirection: "column",
               alignItems: "center",

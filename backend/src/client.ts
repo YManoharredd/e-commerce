@@ -33,12 +33,14 @@ export class ApiClient {
   createProduct = async (
     data: ProductApiTypes["create"]["request"],
     token: string
-  ) =>
+  ) => {
+    console.log(data);
     await this.client.post<ProductApiTypes["create"]["response"]>(
       "/product",
       data,
       ApiClient.bearerToken(token)
     );
+  };
 
   getAllProducts = async () =>
     await this.client.get<ProductApiTypes["getAll"]["response"]>("/product");

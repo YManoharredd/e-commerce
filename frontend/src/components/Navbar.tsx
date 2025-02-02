@@ -25,6 +25,7 @@ import { zIndex } from "../constants";
 import { useAuth } from "../hooks";
 import HStack from "./HStack";
 import LinkHref from "./LinkHref";
+import "../component.css/FooterStyle.css";
 
 const Search = styled(Box)(({ theme }) => ({
   position: "relative",
@@ -117,7 +118,7 @@ function Logo() {
           textDecoration: "none",
         }}
       >
-        Fresh Fields
+        BUYTREND
       </Typography>
     </Box>
   );
@@ -267,6 +268,7 @@ function LoginSignupButtons() {
       }}
     >
       <Button
+        className="singin"
         variant="text"
         onClick={() => {
           navigate("/login");
@@ -283,11 +285,11 @@ function LoginSignupButtons() {
       </Button>
 
       <Button
+        className="signup"
         variant="contained"
         onClick={() => {
           navigate("/signup");
         }}
-        color="success"
       >
         Sign Up
       </Button>
@@ -311,7 +313,7 @@ function Navbar() {
     <AppBar
       position="static"
       sx={(theme) => ({
-        backgroundColor: "#64b367cd",
+        backgroundColor: "white",
         // center navbar
         [theme.breakpoints.up("xl")]: {
           alignItems: "center",
